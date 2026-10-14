@@ -7,12 +7,12 @@ require('dotenv').config();
 
 const authRoutes = require('./routes/authRoutes');
 const movieRoutes = require('./routes/movieRoutes');
+const customerRoutes = require('./routes/customerRoutes');
 const showRoutes = require('./routes/showRoutes');
+const seatRoutes = require('./routes/seatRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
-const historyRoutes = require('./routes/historyRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
-const { error } = require('console');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -34,23 +34,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/movies', movieRoutes);
+app.use('/api/customers', customerRoutes);
 app.use('/api/shows', showRoutes);
+app.use('/api/seats', seatRoutes);
 app.use('/api/bookings', bookingRoutes);
-app.use('/api/history', historyRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 
 app.use((err, req, res, next) => {
-    console.error("========== SERVER ERROR ==========");
-    console.error(err);
-    res.status(500).json({ 
-        error: err.message, 
-        stack: err.stack 
-    });
+  console.error(err);
+  res.status(500).json({ error: 'Internal server error' });
 });
 
-app.listen(PORT, () => {
-  console.log(`🎬 Movie Booking Server running at http://localhost:${PORT}`);
+app.listen(PORT, function () {
+  console.log('🎬 Movie Booking Server running at http://localhost:' + PORT);
 });

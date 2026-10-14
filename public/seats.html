@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seat Availability</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <div id="app-header"></div>
+  <div class="container">
+    <h2>🎟️ Seat Availability</h2>
+
+    <div class="card">
+      <h3>Filter by Date</h3>
+      <label>Show Date: <input type="date" id="filterDate"></label>
+      <button class="btn" id="clearFilter" style="margin-left:8px;">Clear Filter</button>
+    </div>
+
+    <div class="card">
+      <h3>Live Seat Status</h3>
+      <table id="seatsTable">
+        <thead>
+          <tr>
+            <th>Show ID</th>
+            <th>Movie</th>
+            <th>Screen</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Booked</th>
+            <th>Available</th>
+            <th>Occupancy</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/seats.js"></script>
+</body>
+</html>

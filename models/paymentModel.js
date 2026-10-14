@@ -2,9 +2,10 @@ const db = require('../config/db');
 
 exports.getAll = async () => {
   const [rows] = await db.query(`
-    SELECT p.*, b.guest_name, b.total_amount AS booking_total
+    SELECT p.*, b.customer_id, c.name AS customer_name, b.total_amount AS booking_total
     FROM payments p
     JOIN bookings b ON p.booking_id = b.id
+    JOIN customers c ON b.customer_id = c.id
     ORDER BY p.id DESC
   `);
   return rows;
@@ -23,7 +24,7 @@ exports.create = async (data) => {
 
 exports.updateStatus = async (id, status, mode) => {
   await db.query(
-    `UPDATE payments SET status=?, mode=?, paid_at=? WHERE id=?`,
+    'UPDATE payments SET status=?, mode=?, paid_at=? WHERE id=?',
     [status, mode, status === 'paid' ? new Date() : null, id]
   );
 };

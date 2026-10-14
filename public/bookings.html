@@ -9,26 +9,65 @@
   <div id="app-header"></div>
   <div class="container">
     <h2>Manage Bookings</h2>
+
     <div class="card">
       <h3>New Booking</h3>
       <form id="bookingForm" class="form-grid">
-        <input id="guest_name" placeholder="Guest Name" required>
-        <input id="guest_email" type="email" placeholder="Email" required>
-        <input id="guest_phone" placeholder="Phone">
+        <select id="customer_id" required><option value="">Select Customer</option></select>
         <select id="show_id" required><option value="">Select Show</option></select>
         <input id="seats_booked" type="number" min="1" value="1" placeholder="Seats" required>
         <button class="btn" type="submit">Book Ticket</button>
       </form>
       <div id="msg"></div>
     </div>
+
+    <!-- ============ REPORT SECTION ============ -->
+    <div class="card" style="border-left: 5px solid #27ae60;">
+      <h3>📊 Bookings Report</h3>
+      <div class="form-grid" style="align-items:end;">
+        <div>
+          <label style="font-size:0.85rem;">From Date</label>
+          <input type="date" id="reportFrom">
+        </div>
+        <div>
+          <label style="font-size:0.85rem;">To Date</label>
+          <input type="date" id="reportTo">
+        </div>
+        <div>
+          <button class="btn" id="generateReport">Generate Report</button>
+        </div>
+        <div>
+          <button class="btn success" id="downloadCSV">⬇️ Download CSV</button>
+        </div>
+      </div>
+
+      <div id="reportSummary" style="display:none; margin-top:16px;">
+        <div class="stats-grid">
+          <div class="stat-card"><h3>Total Bookings</h3><div class="value" id="rTotalBookings">0</div></div>
+          <div class="stat-card"><h3>Total Seats</h3><div class="value" id="rTotalSeats">0</div></div>
+          <div class="stat-card"><h3>Total Revenue</h3><div class="value" id="rTotalRevenue">$0</div></div>
+          <div class="stat-card"><h3>Cancelled</h3><div class="value" id="rCancelled">0</div></div>
+        </div>
+
+        <table id="reportTable" style="margin-top:16px;">
+          <thead><tr>
+            <th>ID</th><th>Customer</th><th>Movie</th><th>Screen</th>
+            <th>Date</th><th>Seats</th><th>Amount</th>
+            <th>Booking</th><th>Payment</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
     <div class="card">
-      <h3>Bookings List</h3>
+      <h3>All Bookings</h3>
       <label>Filter by Date: <input type="date" id="filterDate"></label>
       <table id="bookingsTable" style="margin-top:12px;">
         <thead><tr>
-          <th>ID</th><th>Guest</th><th>Email</th>
-          <th>Movie</th><th>Screen</th><th>Date/Time</th>
-          <th>Seats</th><th>Amount</th><th>Status</th><th>Actions</th>
+          <th>ID</th><th>Customer</th><th>Email</th><th>Movie</th>
+          <th>Screen</th><th>Date/Time</th><th>Seats</th>
+          <th>Amount</th><th>Status</th><th>Actions</th>
         </tr></thead>
         <tbody></tbody>
       </table>
