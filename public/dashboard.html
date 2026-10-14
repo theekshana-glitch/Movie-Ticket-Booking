@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <div id="app-header"></div>
+  <div class="container">
+    <h2>Admin Dashboard</h2>
+    <div class="stats-grid">
+      <div class="stat-card"><h3>Total Movies</h3><div class="value" id="totalMovies">-</div></div>
+      <div class="stat-card"><h3>Total Shows</h3><div class="value" id="totalShows">-</div></div>
+      <div class="stat-card"><h3>Today's Bookings</h3><div class="value" id="todayBookings">-</div></div>
+      <div class="stat-card"><h3>Total Revenue</h3><div class="value" id="totalRevenue">-</div></div>
+      <div class="stat-card"><h3>Pending Payments</h3><div class="value" id="pendingPayments">-</div></div>
+    </div>
+
+    <div class="card">
+      <h2>Movie-wise Report <button id="exportBtn" class="btn" style="float:right;">Export CSV</button></h2>
+      <table id="reportTable">
+        <thead><tr><th>Movie</th><th>Bookings</th><th>Revenue</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <div id="app-header"></div>
+  <div class="container">
+    <h2>Admin Dashboard</h2>
+    <div class="stats-grid">
+      <div class="stat-card"><h3>Total Movies</h3><div class="value" id="totalMovies">-</div></div>
+      <div class="stat-card"><h3>Total Shows</h3><div class="value" id="totalShows">-</div></div>
+      <div class="stat-card"><h3>Today's Bookings</h3><div class="value" id="todayBookings">-</div></div>
+      <div class="stat-card"><h3>Total Revenue</h3><div class="value" id="totalRevenue">-</div></div>
+      <div class="stat-card"><h3>Pending Payments</h3><div class="value" id="pendingPayments">-</div></div>
+    </div>
+
+    <div class="card">
+      <h2>Movie-wise Report <button id="exportBtn" class="btn" style="float:right;">Export CSV</button></h2>
+      <table id="reportTable">
+        <thead><tr><th>Movie</th><th>Bookings</th><th>Revenue</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
